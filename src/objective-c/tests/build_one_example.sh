@@ -36,9 +36,7 @@ rm -rf Pods
 rm -rf *.xcworkspace
 rm -f Podfile.lock
 
-if [ -f Podfile ]; then
-  time pod install
-fi
+time pod install
 
 set -o pipefail  # preserve xcodebuild exit code when piping output
 
@@ -47,6 +45,7 @@ XCODEBUILD_FILTER_OUTPUT_SCRIPT="${TEST_PATH}/xcodebuild_filter_output.sh"
 if [ "$SCHEME" == "tvOS-sample" ]; then
   time xcodebuild \
     build \
+    -workspace *.xcworkspace \
     -scheme $SCHEME \
     -destination generic/platform=tvOS \
     -derivedDataPath Build/Build \
@@ -57,6 +56,7 @@ if [ "$SCHEME" == "tvOS-sample" ]; then
 else
   time xcodebuild \
     build \
+    -workspace *.xcworkspace \
     -scheme $SCHEME \
     -destination generic/platform=iOS \
     -derivedDataPath Build/Build \
