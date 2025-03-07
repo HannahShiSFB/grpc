@@ -47,7 +47,6 @@ XCODEBUILD_FILTER_OUTPUT_SCRIPT="${TEST_PATH}/xcodebuild_filter_output.sh"
 if [ "$SCHEME" == "tvOS-sample" ]; then
   time xcodebuild \
     build \
-    -workspace *.xcworkspace \
     -scheme $SCHEME \
     -destination generic/platform=tvOS \
     -derivedDataPath Build/Build \
@@ -58,7 +57,6 @@ if [ "$SCHEME" == "tvOS-sample" ]; then
 else
   time xcodebuild \
     build \
-    -workspace *.xcworkspace \
     -scheme $SCHEME \
     -destination generic/platform=iOS \
     -derivedDataPath Build/Build \
