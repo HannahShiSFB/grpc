@@ -36,7 +36,9 @@ rm -rf Pods
 rm -rf *.xcworkspace
 rm -f Podfile.lock
 
-time pod install
+if [ -f Podfile ]; then
+  time pod install
+fi
 
 set -o pipefail  # preserve xcodebuild exit code when piping output
 
