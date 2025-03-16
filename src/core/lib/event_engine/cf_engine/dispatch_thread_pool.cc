@@ -22,10 +22,9 @@
 #include <AvailabilityMacros.h>
 #ifdef AVAILABLE_MAC_OS_X_VERSION_10_12_AND_LATER
 
-#include "src/core/lib/event_engine/cf_engine/dispatch_thread_pool.h"
-
 #include <dispatch/dispatch.h>
 
+#include "src/core/lib/event_engine/cf_engine/dispatch_thread_pool.h"
 #include "src/core/lib/event_engine/common_closures.h"
 
 namespace grpc_event_engine::experimental {
