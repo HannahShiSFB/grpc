@@ -45,7 +45,7 @@ class ThreadPoolTest : public testing::Test {};
 
 using ThreadPoolTypes =
     ::testing::Types<WorkStealingThreadPool, DispatchThreadPool>;
-TYPED_TEST_SUITE(ThreadPoolTest, ThreadPoolTypes);
+TYPED_TEST_SUITE(ThreadPoolTest, ThreadPoolTest);
 
 TYPED_TEST(ThreadPoolTest, CanRunAnyInvocable) {
   TypeParam p(8);
