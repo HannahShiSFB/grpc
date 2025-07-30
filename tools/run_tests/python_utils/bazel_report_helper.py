@@ -133,6 +133,9 @@ def _create_bazel_wrapper(
         xml_report_path, "success_log_to_rename.xml"
     )
 
+    print("Bazel report filenames: %s, %s" % failing_report_filename, failing_report_filename)
+
+
     # invoking "bash" explicitly is important for the workspace status command
     # to work on windows as well.
     workspace_status_command = (
@@ -259,6 +262,17 @@ def _create_bazel_wrapper(
         "Generated bazel wrapper: %s" % bazel_wrapper_bat_filename,
         file=sys.stderr,
     )
+
+
+    print("content of bazel wrapper file: %s", bazel_wrapper_filename)
+    try:
+        with open(bazel_wrapper_filename, 'r') as f:
+            content = f.read()
+            print(content)
+    except FileNotFoundError:
+        print("Error: The file %s was not found.", bazel_wrapper_filename)
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 
 if __name__ == "__main__":
